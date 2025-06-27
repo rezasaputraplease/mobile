@@ -2,53 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Dashboard</title>
+    <title>Landing Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN -->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-papGcTULgCPakCexkZ+nFYdUJ8/8j3oIfJ8RiNpmOqjK3EzK+NcWJxAdI2eM8C3x5mJmY9D0G5aMQ2DdMyvYbw=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-gray-100 min-h-screen flex flex-col">
-    <!-- Navbar -->
-    <nav class="bg-white shadow p-4 flex items-center justify-between">
-      <h1 class="text-xl font-bold text-gray-800">My Dashboard</h1>
-      <div class="flex gap-6 text-gray-700">
-        <!-- To-Do List Link -->
-        <a
-          href="todo.html"
-          class="flex items-center gap-2 hover:text-blue-600 transition"
-        >
-          <i class="fas fa-list-check"></i>
-          <span class="hidden sm:inline">To-Do List</span>
-        </a>
-        <!-- Tambah icon lain jika dibutuhkan -->
-        <a
-          href="#"
-          class="flex items-center gap-2 hover:text-blue-600 transition"
-        >
-          <i class="fas fa-gear"></i>
-          <span class="hidden sm:inline">Settings</span>
-        </a>
-      </div>
-    </nav>
+  <body class="bg-white min-h-screen flex flex-col justify-between">
+    <!-- Header -->
+    <header class="p-4 text-center">
+      <h1 class="text-2xl font-bold text-gray-800">My App</h1>
+      <p class="text-gray-500 text-sm">Sederhana. Cepat. Mobile-friendly.</p>
+    </header>
 
-    <!-- Konten Utama -->
-    <main class="flex-grow flex items-center justify-center text-center">
-      <div>
-        <h2 class="text-2xl font-semibold mb-3">Selamat datang!</h2>
-        <p class="text-gray-600">Silakan pilih menu di atas untuk memulai.</p>
-      </div>
-    </main>
+    <!-- Hero Section -->
+    <section class="flex-1 flex flex-col items-center justify-center px-6">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png"
+        alt="Hero"
+        class="w-32 mb-4"
+      />
+      <h2 class="text-xl font-semibold text-gray-800 mb-2 text-center">
+        Kelola aktivitas harianmu
+      </h2>
+      <p class="text-gray-500 text-center text-sm mb-6">
+        Mulai dari to-do list hingga catatan harian, semua bisa kamu kelola di
+        satu tempat.
+      </p>
+      <a
+        href="todo.html"
+        class="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium shadow hover:bg-blue-700 transition"
+      >
+        <i class="fas fa-list-check mr-2"></i> Mulai To-Do List
+      </a>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-white p-4 text-center text-gray-500 text-sm shadow-inner">
-      &copy; 2025 My App. All rights reserved.
+    <footer class="text-center text-xs text-gray-500 p-4 space-y-3">
+      <!-- Icon Sosial -->
+      <div class="flex justify-center gap-5 text-xl">
+        <a href="#" class="hover:text-blue-600 transition">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="hover:text-pink-500 transition">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="hover:text-black transition">
+          <i class="fab fa-threads"></i>
+          <!-- Jika tidak muncul, ganti manual -->
+        </a>
+        <a href="#" class="hover:text-gray-800 transition">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 My App. All rights reserved.</p>
     </footer>
   </body>
 </html>
