@@ -1,113 +1,54 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navbar + Modal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .modal-enter {
-        transform: translateY(100%);
-        opacity: 0;
-      }
-      .modal-enter-active {
-        transform: translateY(0);
-        opacity: 1;
-        transition: all 0.3s ease-out;
-      }
-      .modal-exit-active {
-        transform: translateY(100%);
-        opacity: 0;
-        transition: all 0.3s ease-in;
-      }
-    </style>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-papGcTULgCPakCexkZ+nFYdUJ8/8j3oIfJ8RiNpmOqjK3EzK+NcWJxAdI2eM8C3x5mJmY9D0G5aMQ2DdMyvYbw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-  <body class="bg-gray-100 min-h-screen">
+  <body class="bg-gray-100 min-h-screen flex flex-col">
     <!-- Navbar -->
-    <nav
-      class="bg-blue-600 text-white px-4 py-3 flex justify-between items-center shadow-md"
-    >
-      <h1 class="text-xl font-bold">Aplikasi Saya</h1>
-      <button id="openMenu" class="text-3xl focus:outline-none">&#9776;</button>
+    <nav class="bg-white shadow p-4 flex items-center justify-between">
+      <h1 class="text-xl font-bold text-gray-800">My Dashboard</h1>
+      <div class="flex gap-6 text-gray-700">
+        <!-- To-Do List Link -->
+        <a
+          href="todo.html"
+          class="flex items-center gap-2 hover:text-blue-600 transition"
+        >
+          <i class="fas fa-list-check"></i>
+          <span class="hidden sm:inline">To-Do List</span>
+        </a>
+        <!-- Tambah icon lain jika dibutuhkan -->
+        <a
+          href="#"
+          class="flex items-center gap-2 hover:text-blue-600 transition"
+        >
+          <i class="fas fa-gear"></i>
+          <span class="hidden sm:inline">Settings</span>
+        </a>
+      </div>
     </nav>
 
-    <!-- Konten -->
-    <main class="p-6">
-      <p>Halaman utama dengan navbar dan modal menu dari bawah.</p>
+    <!-- Konten Utama -->
+    <main class="flex-grow flex items-center justify-center text-center">
+      <div>
+        <h2 class="text-2xl font-semibold mb-3">Selamat datang!</h2>
+        <p class="text-gray-600">Silakan pilih menu di atas untuk memulai.</p>
+      </div>
     </main>
 
-    <!-- Modal -->
-    <div
-      id="bottomModal"
-      class="fixed inset-0 z-50 bg-black bg-opacity-50 hidden"
-    >
-      <div
-        id="modalContent"
-        class="absolute bottom-0 left-0 right-0 bg-white p-6 rounded-t-2xl shadow-lg max-h-[90%]"
-      >
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-semibold">Menu</h2>
-          <button
-            id="closeMenu"
-            class="text-2xl text-gray-600 hover:text-red-500"
-          >
-            &times;
-          </button>
-        </div>
-        <ul class="space-y-3">
-          <li>
-            <a href="#" class="block text-blue-600 font-medium">Beranda</a>
-          </li>
-          <li>
-            <a href="#" class="block text-blue-600 font-medium">Profil</a>
-          </li>
-          <li>
-            <a
-              href="setting.html"
-              class="block text-blue-600 font-medium hover:underline"
-            >
-              Pengaturan
-            </a>
-          </li>
-          <li>
-            <a href="#" class="block text-blue-600 font-medium">Keluar</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <script>
-      const openBtn = document.getElementById("openMenu");
-      const closeBtn = document.getElementById("closeMenu");
-      const modal = document.getElementById("bottomModal");
-      const modalContent = document.getElementById("modalContent");
-
-      // Tampilkan modal
-      openBtn.addEventListener("click", () => {
-        modal.classList.remove("hidden");
-        modalContent.classList.add("modal-enter");
-        setTimeout(() => {
-          modalContent.classList.remove("modal-enter");
-          modalContent.classList.add("modal-enter-active");
-        }, 10);
-      });
-
-      // Tutup modal
-      closeBtn.addEventListener("click", () => {
-        modalContent.classList.remove("modal-enter-active");
-        modalContent.classList.add("modal-exit-active");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-          modalContent.classList.remove("modal-exit-active");
-        }, 300);
-      });
-
-      // Klik area luar modal
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          closeBtn.click();
-        }
-      });
-    </script>
+    <!-- Footer -->
+    <footer class="bg-white p-4 text-center text-gray-500 text-sm shadow-inner">
+      &copy; 2025 My App. All rights reserved.
+    </footer>
   </body>
 </html>
