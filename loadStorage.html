@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Local Storage Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen p-4">
+    <h1 class="text-2xl font-bold mb-4 text-center text-blue-700">
+      Local Storage Viewer
+    </h1>
+
+    <div id="storageContent" class="bg-white rounded-lg shadow p-4 space-y-4">
+      <!-- Storage items will be inserted here -->
+    </div>
+
+    <script>
+      const container = document.getElementById("storageContent");
+
+      if (localStorage.length === 0) {
+        container.innerHTML =
+          '<p class="text-gray-500">Tidak ada data di localStorage.</p>';
+      } else {
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          let value = localStorage.getItem(key);
+
+          // Jika JSON, coba parse agar lebih enak dibaca
+          try {
+            const parsed = JSON.parse(value);
+            value = `<pre class="bg-gray-100 p-2 rounded overflow-auto text-sm">${JSON.stringify(
+              parsed,
+              null,
+              2
+            )}</pre>`;
+          } catch (e) {
+            value = `<p class="text-sm break-words">${value}</p>`;
+          }
+
+          container.innerHTML += `
+            <div class="border rounded p-3 bg-gray-50">
+              <p class="font-semibold text-gray-800 mb-1">Key: <span class="text-blue-600">${key}</span></p>
+              <div>${value}</div>
+            </div>
+          `;
+        }
+      }
+    </script>
+  </body>
+</html>
