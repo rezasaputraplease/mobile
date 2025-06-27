@@ -11,6 +11,23 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       crossorigin="anonymous"
     />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const userData = localStorage.getItem("userData");
+
+        if (!userData) {
+          // Jika belum ada userData, redirect ke login.html
+          window.location.href = "login.html";
+        } else {
+          // Jika ada, kamu bisa parse dan akses datanya
+          const user = JSON.parse(userData);
+          console.log("Data user ditemukan:", user);
+
+          // Contoh: tampilkan nama pengguna jika ada
+          // alert("Selamat datang, " + user.username);
+        }
+      });
+    </script>
   </head>
   <body class="bg-white min-h-screen flex flex-col justify-between">
     <!-- Header -->
@@ -43,7 +60,6 @@
 
     <!-- Footer -->
     <footer class="text-center text-xs text-gray-500 p-4 space-y-3">
-      <!-- Icon Sosial -->
       <div class="flex justify-center gap-5 text-xl">
         <a href="#" class="hover:text-blue-600 transition">
           <i class="fab fa-facebook-f"></i>
@@ -53,7 +69,6 @@
         </a>
         <a href="#" class="hover:text-black transition">
           <i class="fab fa-threads"></i>
-          <!-- Jika tidak muncul, ganti manual -->
         </a>
         <a href="#" class="hover:text-gray-800 transition">
           <i class="fab fa-x-twitter"></i>
